@@ -9,6 +9,15 @@ from PIL import Image
 import requests
 from io import BytesIO
 
+
+
+# *************************************************************************************************
+
+
+
+
+# **********************************************************************************************
+
 app = Flask(__name__)
 bot = Bot (ACCESS_TOKEN)
 
@@ -61,15 +70,12 @@ def get_texts(texts):
 
     texts = texts.lower()
     print(texts)
-    global sample_responses
+    #global sample_responses
 
-    if texts == 'hi':
-        sample_responses = ["Hi, Thanks for your message!"]
-    elif texts == 'how are you':
-        sample_responses = ["Fine! You?"]
+    auto_reply = botResponse(texts)
 
     # return selected item to the user
-    return random.choice(sample_responses)
+    return auto_reply
 
 
 def get_attachments(attachments):
