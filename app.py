@@ -13,7 +13,7 @@ app = Flask(__name__)
 bot = Bot (ACCESS_TOKEN)
 
 #We will receive messages that Facebook sends our bot at this endpoint
-sample_responses = ["asdasd", "szdfcsdf"]
+sample_responses = ["asdasd", "szdcsdf"]
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
