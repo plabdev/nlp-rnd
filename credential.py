@@ -31,17 +31,17 @@ stemmer = LancasterStemmer()
 # load intents
 # import our chat-bot intents file
 import json
-with open('intents.json') as json_data:
+with open('intents_robi_en.json') as json_data:
     intents = json.load(json_data)
 
 
 #Use pickle to load  data
-data = pickle.load( open( "./pickle/ahsbot-data.pkl", "rb" ) )
+data = pickle.load( open( "./pickle/robi_en_data.pkl", "rb" ) )
 words = data['words']
 classes = data['classes']
 
 #Use pickle to load in the pre-trained model
-with open('./pickle/ahsbot-model.pkl', 'rb') as f:
+with open('./pickle/robi_en_model.pkl', 'rb') as f:
     global model
     model = pickle.load(f)
 

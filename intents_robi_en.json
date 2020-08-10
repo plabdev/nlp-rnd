@@ -1,0 +1,58 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?", "Hello", "Good day", "hlw", "hi", "Hello"],
+         "responses": ["Hello, thanks for asking. How can I help you", "Good Day sir. How Can I help you sir", "Hi there, how can I help?"],
+         "context": [""]
+        },
+
+        {"tag": "robi",
+         "patterns": ["what is robi?", "what can do robi for me?", "How robi serve people", "robi"],
+         "responses": ["Hello, thanks for choosing Robi. Robi Axiata Limited, DBA Robi is the second largest mobile network operator in Bangladesh. https://www.robi.com.bd/en"],
+         "context": [""]
+        },
+
+        {"tag": "balance",
+         "patterns": ["How can check my balance", "Robi balance", "My balance", "robi account balance", "How can I check my Robi Postpaid bills info?", "balance code", "Internet check",
+           "Robi Minute check", "Number check", "Robi number check"],
+         "responses": ["Hello, thanks for choosing Robi. Just dial *121*1# to check your bills info.  Robi SIM All Code Number . Balance Check : *222# Show SIM Number : *140*2*4# Package Check : *140*14# . Minute Check : *222*3# SMS Check : *222*11#"],
+         "context": [""]
+        },
+
+
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["Happy to help!", "Welcome! See again", "My pleasure"],
+         "context": [""]
+        },
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+        {"tag": "social_media_pack",
+         "patterns": ["Is there any social media package offer by robi", "social media package", "any special social media package", "Fb package", "Whatsapp package", "Imo package"],
+         "responses": ["Robi offer many kinds of social media package. you can check you offer throgh this links   https://www.robi.com.bd/en/personal/packs/"],
+         "context": [""]
+        },
+        {"tag": "Robi_apps",
+         "patterns": ["Is there any robi apps?", "what is facility of robi app", "what is privilege of robi app", "any special offer of robi app", "Robi app", "How can I download robi app", "robi apps download link"],
+         "responses": ["Why My Robi App? Online recharge/ bill payment; Recharge/ pay bill through scratch card PINs; Transfer balance to another Robi prepaid account; Activate and so on know more in the following links    https://www.robi.com.bd/en/personal/my-robi-app"],
+         "context": [""]
+        },
+
+
+
+        {"tag": "customer_care",
+         "patterns": ["where is the robi customer care location", "How can I get customer care help", "customer care helpline", "Robi customer care",  "Robi customer care near me", "robi customer care number or no"],
+         "responses": ["Complaint Helpline – Dial 158 from Robi number (Free of charge IVR based service); Call Center – Dial 121. click the link for more helpline    https://www.robi.com.bd/en/personal/customer-service"],
+         "context": [""]
+        }
+
+
+   ]
+}
