@@ -8,11 +8,50 @@ import webview
 from PIL import Image
 import requests
 from io import BytesIO
+import numpy as np
+from keras.models import load_model
+from keras.preprocessing import image
+import cv2
 
 
 
+#Image classifier
 # *************************************************************************************************
+from skimage import io
 
+LABEL = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine']
+model = load_model("/home/alpha/Desktop/PreNeu/Office Day/13 Aug/nlp-rnd/keras weights/mnist_cnn.h5")
+model.summary()
+load_input = model.input
+input_shape= list(load_input.shape)
+
+height = int(input_shape[1])
+width = int(input_shape[2])
+channel = int(input_shape[3])
+print(height, width, channel)
+
+def load_image(image):
+
+    if channel == 1:
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+
+    image = cv2.resize(image,(height,width)) # resize image to 32x32
+    image = image.reshape(1, height, width,channel).astype('float32')
+    image = np.array(image) / 255
+
+    return image
+
+def image_classification(url):
+    image = io.imread(url)
+    image = load_image(image)
+
+    result = model.predict(image)
+    result = np.argmax(result, axis=1)
+
+    text = "Yes! It is  "+str(LABEL[result[0]])
+
+    return text
 
 
 
@@ -47,10 +86,10 @@ def receive_message():
                     response_sent_text = get_texts(texts=text_message)
                     send_message(recipient_id, response_sent_text)
                 #if user sends us a GIF, photo,video, or any other non-text item
-                elif message['message'].get('attachments'):
-                    attachments_message = message['message']['attachments']
-                    response_sent_nontext = get_attachments(attachments = attachments_message)
-                    send_message(recipient_id, response_sent_nontext)
+                # elif message['message'].get('attachments'):
+                #     attachments_message = message['message']['attachments']
+                #     response_sent_nontext = get_attachments(attachments = attachments_message)
+                #     send_message(recipient_id, response_sent_nontext)
 
     return "Message Processed"
 
@@ -80,22 +119,18 @@ def get_texts(texts):
 
 def get_attachments(attachments):
 
-    global sample_responses
     attachments = attachments[0]
     print(attachments['payload']['url'])
     url = attachments['payload']['url']
-    #webview.create_window('Hello world', url)
-    #webview.start()
 
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
-    img.show()
+    # print(attachments['type'], type(attachments['type']))
+    #
+    # if attachments['type'] == 'image':
+    #     result = image_classification(url)
+    #     return result
+    # else:
 
-    sample_responses = ["attachments stunning!", "attachments photo"]
-
-    # return selected item to the user
-    return random.choice(sample_responses)
-
+    return "unknow attachments"
 
 
 #uses PyMessenger to send response to user

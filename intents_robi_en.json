@@ -48,7 +48,7 @@
 
 
         {"tag": "customer_care",
-         "patterns": ["where is the robi customer care location", "How can I get customer care help", "customer care helpline", "Robi customer care",  "Robi customer care near me", "robi customer care number or no"],
+         "patterns": ["Helpline","where is the robi customer care location", "How can I get customer care help", "customer care helpline", "Robi customer care",  "Robi customer care near me", "robi customer care number or no"],
          "responses": ["Complaint Helpline – Dial 158 from Robi number (Free of charge IVR based service); Call Center – Dial 121. click the link for more helpline    https://www.robi.com.bd/en/personal/customer-service"],
          "context": [""]
         }
